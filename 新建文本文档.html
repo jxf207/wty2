@@ -45,6 +45,8 @@
         
         <input type="number" id="value1" placeholder="请输入价格（单位￥）">
         <input type="number" id="value2" placeholder="请输入重量（单位kg）">
+        <input type="number" id="value3">
+        <input type="number" id="value4">
         
         <button onclick="calculate()">计算售价</button>
         <button onclick="resetForm()">重置数据</button>
@@ -63,9 +65,29 @@
                 alert("请输入有效的数字");
                 return;
             }
+            if (value2 >= 0.001 && value <=0.1){
+                value3 = "100";
+                value4 = "20";
+            }else if (value2 >= 0.101 && value2 <= 0.2){
+                value3 = "91";
+                value4 = "18";
+            }else if (value2 >= 0.201 && value2 <= 0.45){
+                value3 ="85";
+                value4 ="16";
+            }else if (value2 >= 0.451 && value2 <= 0.7){
+                value3 ="83";
+                value4 ="16";
+            }else if (value2 >=0.701 && value2 <= 2){
+                value3 ="83";
+                value4 ="9";
+            }else {
+                value3 ="73";
+                value4 ="9"
+            }
+            
 
             // 计算逻辑（示例：乘法计算）
-            const result = (value1 + value2 * 95 + 15) / 7 / 0.7 ;
+            const result = (value1 + value2 * value3 + value4) / 7 / 0.7 ;
             
             // 显示结果
             document.getElementById('result').innerHTML = `
