@@ -59,6 +59,12 @@
             // 获取输入值
             const value1 = parseFloat(document.getElementById('value1').value);
             const value2 = parseFloat(document.getElementById('value2').value);
+            let value3, value4;
+            // 验证输入
+            if (isNaN(value1) || isNaN(value2)) {
+                alert("请输入有效的数字");
+                return;
+            }
             if (value2 >= 0.001 && value <=0.1){
                 value3 = "100";
                 value4 = "20";
@@ -77,11 +83,6 @@
             }else {
                 value3 ="73";
                 value4 ="9";
-            }
-            // 验证输入
-            if (isNaN(value1) || isNaN(value2)) {
-                alert("请输入有效的数字");
-                return;
             }
             
             
