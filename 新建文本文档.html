@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>家庭费用计算器</title>
+    <style>
+        .calculator {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 45%;
+            padding: 10px;
+            margin: 10px 2%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h3>售价计算器</h3>
+        
+        <input type="number" id="value1" placeholder="请输入价格（单位￥）">
+        <input type="number" id="value2" placeholder="请输入重量（单位kg）">
+        
+        <button onclick="calculate()">计算售价</button>
+        <button onclick="resetForm()">重置数据</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            // 获取输入值
+            const value1 = parseFloat(document.getElementById('value1').value);
+            const value2 = parseFloat(document.getElementById('value2').value);
+            
+            // 验证输入
+            if (isNaN(value1) || isNaN(value2)) {
+                alert("请输入有效的数字");
+                return;
+            }
+
+            // 计算逻辑（示例：乘法计算）
+            const result = (value1 + value2 * 95 + 15) / 7 / 0.7 ;
+            
+            // 显示结果
+            document.getElementById('result').innerHTML = `
+                <strong>计算结果：</strong><br>
+                价格：${value1.toFixed(2)}<br>
+                重量：${value2}<br>
+                总费用：<span style="color:red">$${result.toFixed(2)}</span>
+            `;
+        }
+
+        function resetForm() {
+            // 清空所有输入和结果
+            document.getElementById('value1').value = '';
+            document.getElementById('value2').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
